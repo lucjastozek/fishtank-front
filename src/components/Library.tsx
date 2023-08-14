@@ -3,18 +3,20 @@ import SetTile from "./SetTile";
 
 interface LibraryProps {
   sets: SetProps[];
+  setMain: React.Dispatch<React.SetStateAction<string>>;
+  setChosenSet: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function Library({ sets }: LibraryProps): JSX.Element {
+function Library({ sets, setMain, setChosenSet }: LibraryProps): JSX.Element {
   return (
     <main className="library">
       <h1>Library</h1>
       <div className="tiles">
         {sets.map((set) => (
           <SetTile
-            id={set.id}
-            owner_id={set.owner_id}
-            name={set.name}
+            set={set}
+            setChosenSet={setChosenSet}
+            setMain={setMain}
             key={set.id}
           />
         ))}

@@ -1,9 +1,20 @@
 import SetProps from "../interfaces/SetProps";
 
-function SetTile({ id, owner_id, name }: SetProps): JSX.Element {
+interface SetTileProps {
+  set: SetProps;
+  setMain: React.Dispatch<React.SetStateAction<string>>;
+  setChosenSet: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function SetTile({ set, setMain, setChosenSet }: SetTileProps): JSX.Element {
+  function handleTileClick() {
+    setChosenSet(set.id);
+    setMain("activities");
+  }
+
   return (
-    <div className="tile">
-      <h3>{name}</h3>
+    <div className="tile" onClick={handleTileClick}>
+      <h3>{set.name}</h3>
       <p>Progress</p>
       <div className="progress-info">
         <div className="progress-bar" style={{ width: "15vw" }}>

@@ -58,6 +58,8 @@ nav {
 h1 {
   font-family: "Comfortaa", cursive;
   font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 h3 {
@@ -78,6 +80,7 @@ h3 {
   border-radius: 20px;
   background-color: #ffffff;
   margin: 1vw;
+  width: 20vw;
 }
 
 .tiles {
@@ -87,6 +90,8 @@ h3 {
   justify-content: center;
   align-items: center;
   width: 90vw;
+  max-height: 45vh;
+  overflow-y: auto;
 }
 
 .library {
@@ -149,4 +154,45 @@ i {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.activities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 16vw;
+  border-radius: 20px;
+  border: 1px solid #101213;
+  padding: 2vw;
+  margin: 1vw;
+}
+
+.activity > p {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.activity-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-screen > p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
 }
