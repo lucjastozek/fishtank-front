@@ -176,6 +176,38 @@ i {
   margin: 1vw;
 }
 
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16vw;
+  padding: 4vh 0;
+  border: 1px solid #101213;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 1vw 1vh #73aacc;
+}
+
+.flashcard > h3 {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.flashcard > p {
+  font-family: "Open Sans", sans-serif;
+  color: #716760;
+}
+
+.true > p {
+  color: #101213;
+}
+
+.true {
+  background-color: #c4dae8;
+}
+
 .activity > p {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
@@ -195,4 +227,16 @@ i {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 2rem;
+}
+
+.interface {
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.interface > button {
+  background: none;
 }

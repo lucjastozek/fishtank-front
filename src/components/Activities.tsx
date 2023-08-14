@@ -4,9 +4,10 @@ import axios from "axios";
 
 interface ActivitiesProps {
   id: number;
+  setMain: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function Activities({ id }: ActivitiesProps): JSX.Element {
+function Activities({ id, setMain }: ActivitiesProps): JSX.Element {
   const [set, setSet] = useState<SetProps>();
 
   async function fetchSet() {
@@ -25,7 +26,12 @@ function Activities({ id }: ActivitiesProps): JSX.Element {
       <h1>{set !== undefined ? set.name : ""}</h1>
       <p>Choose the activity!</p>
       <div className="activities">
-        <div className="activity">
+        <div
+          className="activity"
+          onClick={() => {
+            setMain("flashcards");
+          }}
+        >
           <p>flashcards</p>
           <img src="./static/flashcards.png" alt="flashcards" />
         </div>

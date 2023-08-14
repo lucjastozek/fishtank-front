@@ -5,6 +5,8 @@ import SetProps from "./interfaces/SetProps";
 import axios from "axios";
 import Library from "./components/Library";
 import Activities from "./components/Activities";
+import Flashcard from "./components/Flashcard";
+import Flashcards from "./components/Flashcards";
 
 function App(): JSX.Element {
   interface ScreensProps {
@@ -34,7 +36,9 @@ function App(): JSX.Element {
         <Library sets={sets} setChosenSet={setChosenSet} setMain={setMain} />
       )}
 
-      {main === "activities" && <Activities id={chosenSet} />}
+      {main === "activities" && <Activities id={chosenSet} setMain={setMain} />}
+
+      {main === "flashcards" && <Flashcards id={chosenSet} />}
       <img className="background" src="./static/waves.svg" alt="waves" />
     </div>
   );
