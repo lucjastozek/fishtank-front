@@ -13,7 +13,7 @@ function Flashcard({
 }: CardProps): JSX.Element {
   return (
     <div
-      className={`flashcard ${showAnswer}`}
+      className={`flashcard ${showAnswer} clickable`}
       onClick={() => {
         setShowAnswer((prev) => !prev);
       }}

@@ -27,7 +27,7 @@ function Activities({ id, setMain }: ActivitiesProps): JSX.Element {
       <p>Choose the activity!</p>
       <div className="activities">
         <div
-          className="activity"
+          className="activity clickable"
           onClick={() => {
             setMain("flashcards");
           }}
@@ -35,11 +35,11 @@ function Activities({ id, setMain }: ActivitiesProps): JSX.Element {
           <p>flashcards</p>
           <img src="./static/flashcards.png" alt="flashcards" />
         </div>
-        <div className="activity">
+        <div className="activity clickable">
           <p>learn</p>
           <img src="./static/brain.png" alt="flashcards" />
         </div>
-        <div className="activity">
+        <div className="activity clickable">
           <p>test</p>
           <img src="./static/exam.png" alt="flashcards" />
         </div>

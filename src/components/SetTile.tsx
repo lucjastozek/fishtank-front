@@ -13,7 +13,7 @@ function SetTile({ set, setMain, setChosenSet }: SetTileProps): JSX.Element {
   }
 
   return (
-    <div className="tile" onClick={handleTileClick}>
+    <div className="tile clickable" onClick={handleTileClick}>
       <h3>{set.name}</h3>
       <p>Progress</p>
       <div className="progress-info">

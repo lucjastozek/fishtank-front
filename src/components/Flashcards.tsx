@@ -58,7 +58,7 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
     <main>
       <h1>{name}</h1>
       <div className="interface">
-        <button onClick={handleBack}>
+        <button onClick={handleBack} className="clickable">
           <img src="./static/arrowLeft.svg" alt="arrow left" />
         </button>
         {flashcards.length > 0 && (
@@ -68,7 +68,7 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
             setShowAnswer={setShowAnswer}
           />
         )}
-        <button onClick={handleNext}>
+        <button onClick={handleNext} className="clickable">
           <img src="./static/arrowRight.svg" alt="arrow right" />
         </button>
       </div>

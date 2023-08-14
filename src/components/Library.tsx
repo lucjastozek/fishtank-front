@@ -21,7 +21,7 @@ function Library({ sets, setMain, setChosenSet }: LibraryProps): JSX.Element {
           />
         ))}
       </div>
-      <button className="add">
+      <button className="add clickable">
         <i className="fa-solid fa-plus" style={{ color: "#fff9f5" }}></i> add a
         new set
       </button>

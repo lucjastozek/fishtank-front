@@ -6,7 +6,7 @@ function PageHeader({ setMain }: PageHeaderProps): JSX.Element {
   return (
     <header>
       <div
-        className="title"
+        className="title clickable"
         onClick={() => {
           setMain("library");
         }}
@@ -23,11 +23,12 @@ function PageHeader({ setMain }: PageHeaderProps): JSX.Element {
           onClick={() => {
             setMain("library");
           }}
+          className="clickable"
         >
           Library
         </p>
         <img
-          className="icon-right"
+          className="icon-right clickable"
           src="./static/userIcon.svg"
           alt="user icon"
         />
