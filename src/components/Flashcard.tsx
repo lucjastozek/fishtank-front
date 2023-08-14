@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FlashcardProps from "../interfaces/FlashcardProps";
 
 interface CardProps {
@@ -14,7 +13,7 @@ function Flashcard({
 }: CardProps): JSX.Element {
   return (
     <div
-      className={"flashcard" + " " + showAnswer}
+      className={`flashcard ${showAnswer}`}
       onClick={() => {
         setShowAnswer((prev) => !prev);
       }}
