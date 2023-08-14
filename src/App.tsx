@@ -29,7 +29,7 @@ function App(): JSX.Element {
 
   return (
     <div>
-      <PageHeader />
+      <PageHeader setMain={setMain} />
       {main === "library" && (
         <Library sets={sets} setChosenSet={setChosenSet} setMain={setMain} />
       )}

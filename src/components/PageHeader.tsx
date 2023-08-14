@@ -1,7 +1,16 @@
-function PageHeader(): JSX.Element {
+interface PageHeaderProps {
+  setMain: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function PageHeader({ setMain }: PageHeaderProps): JSX.Element {
   return (
     <header>
-      <div className="title">
+      <div
+        className="title"
+        onClick={() => {
+          setMain("library");
+        }}
+      >
         <img
           className="icon-left"
           src="./static/icon.svg"
@@ -10,7 +19,13 @@ function PageHeader(): JSX.Element {
         <h1>Fish Tank</h1>
       </div>
       <nav>
-        <p>Library</p>
+        <p
+          onClick={() => {
+            setMain("library");
+          }}
+        >
+          Library
+        </p>
         <img
           className="icon-right"
           src="./static/userIcon.svg"
