@@ -244,3 +244,26 @@ i {
 .clickable {
   cursor: pointer;
 }
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  background-color: #ffffff;
+  min-width: 30vw;
+  padding: 1vh 1vw;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  border-radius: 20px;
+  border: 1px solid #101213;
+  margin-bottom: 2vh;
+}
+
+.primary {
+  background-color: #73aacc;
+  font-size: 1.5rem;
+}
