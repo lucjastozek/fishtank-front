@@ -1,7 +1,8 @@
-import { useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import FlashcardProps from "../interfaces/FlashcardProps";
 import Flashcard from "./Flashcard";
+import fetchName from "../utils/fetchName";
+import fetchFlashcards from "../utils/fetchFlashcards";
 
 interface FlashcardsProps {
   id: number;
@@ -12,26 +13,6 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
   const [flashcards, setFlashcards] = useState<FlashcardProps[]>([]);
   const [index, setIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
-
-  async function fetchName() {
-    const response = await axios.get(
-      `https://zagadnieniator.onrender.com/collections/${id}`
-    );
-
-    const jsonBody = response.data;
-
-    setName(jsonBody.data.collections.rows[0].name);
-  }
-
-  async function fetchFlashcards() {
-    const response = await axios.get(
-      `https://zagadnieniator.onrender.com/collections/${id}/flashcards`
-    );
-
-    const jsonBody = response.data;
-
-    setFlashcards(jsonBody.data.collection.rows);
-  }
 
   function handleBack() {
     if (index === 0) {
@@ -52,8 +33,11 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
     setShowAnswer(false);
   }
 
-  fetchName();
-  fetchFlashcards();
+  useEffect(() => {
+    fetchName(setName, id);
+    fetchFlashcards(setFlashcards, id);
+  }, [id]);
+
   return (
     <main>
       <h1>{name}</h1>
@@ -61,9 +45,20 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
         <button onClick={handleBack} className="clickable">
           <img src="./static/arrowLeft.svg" alt="arrow left" />
         </button>
-        {flashcards.length > 0 && (
+        {flashcards.length > 0 ? (
           <Flashcard
             flashcard={flashcards[index]}
+            showAnswer={showAnswer}
+            setShowAnswer={setShowAnswer}
+          />
+        ) : (
+          <Flashcard
+            flashcard={{
+              id: 1,
+              collection: 1,
+              question: "are the flashcards loading?",
+              answer: "yes!",
+            }}
             showAnswer={showAnswer}
             setShowAnswer={setShowAnswer}
           />

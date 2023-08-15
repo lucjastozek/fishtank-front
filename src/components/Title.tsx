@@ -1,14 +1,28 @@
 import { useState } from "react";
 import axios from "axios";
 
-function Title(): JSX.Element {
+interface TitleProps {
+  setMain: React.Dispatch<React.SetStateAction<string>>;
+  setChosenSet: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function Title({ setMain, setChosenSet }: TitleProps): JSX.Element {
   const [title, setTitle] = useState("");
 
   async function handleClick() {
     // creates a set with the given title
-    await axios.post(`https://zagadnieniator.onrender.com/collections/`, {
-      name: title,
-    });
+    const response = await axios.post(
+      `https://zagadnieniator.onrender.com/collections/`,
+      {
+        name: title,
+      }
+    );
+
+    const setId = response.data.data.createdCollection.rows[0].id;
+
+    setChosenSet(setId);
+
+    setMain("flashcardEntry");
   }
 
   return (

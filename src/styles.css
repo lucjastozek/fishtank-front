@@ -193,6 +193,8 @@ i {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
+  max-width: 14vw;
+  text-align: center;
 }
 
 .flashcard > p {
@@ -266,4 +268,57 @@ input {
 .primary {
   background-color: #73aacc;
   font-size: 1.5rem;
+}
+
+.flashcard-entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question {
+  border-radius: 10px 0 0 10px;
+}
+
+.answer {
+  border-radius: 0 10px 10px 0;
+  background-color: #c4dae8;
+}
+
+.f-entry {
+  padding: 1vh 1vw;
+  font-size: 2rem;
+  margin-left: 1vw;
+}
+
+table {
+  width: 73vw;
+  font-size: 1.5rem;
+  background-color: #101213;
+}
+
+th {
+  background-color: #73aacc;
+}
+.q {
+  background-color: #ffffff;
+}
+
+.a {
+  background-color: #c4dae8;
+}
+
+th,
+td {
+  margin: 0;
+  padding: 1vh 1vw;
+}
+
+.success {
+  margin-top: 1vh;
+  background-color: #33ca7f;
+  font-size: 1.75rem;
+  border: 1px solid #101213;
+  padding: 1vh 1vw;
 }

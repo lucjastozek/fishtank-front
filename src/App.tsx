@@ -7,6 +7,7 @@ import Library from "./components/Library";
 import Activities from "./components/Activities";
 import Flashcards from "./components/Flashcards";
 import Title from "./components/Title";
+import FlashcardEntry from "./components/FlashcardEntry";
 
 function App(): JSX.Element {
   const [sets, setSets] = useState<SetProps[]>([]);
@@ -36,7 +37,13 @@ function App(): JSX.Element {
       {main === "activities" && <Activities id={chosenSet} setMain={setMain} />}
 
       {main === "flashcards" && <Flashcards id={chosenSet} />}
-      {main === "title" && <Title />}
+      {main === "title" && (
+        <Title setMain={setMain} setChosenSet={setChosenSet} />
+      )}
+
+      {main === "flashcardEntry" && (
+        <FlashcardEntry id={chosenSet} setMain={setMain} />
+      )}
 
       <img className="background" src="./static/waves.svg" alt="waves" />
     </div>
