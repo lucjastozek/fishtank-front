@@ -27,11 +27,11 @@ function PageHeader({ setMain }: PageHeaderProps): JSX.Element {
         >
           Library
         </p>
-        <img
+        {/* <img
           className="icon-right clickable"
           src="./static/userIcon.svg"
           alt="user icon"
-        />
+        /> */}
       </nav>
     </header>
   );
