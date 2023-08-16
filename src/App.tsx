@@ -30,7 +30,7 @@ function App(): JSX.Element {
       setSets(jsonBody.data.collections.rows);
     }
     fetchCollections();
-  }, []);
+  }, [main]);
 
   useEffect(() => {
     fetchFlashcards(setFlashcards, chosenSet);
