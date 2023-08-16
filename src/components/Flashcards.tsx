@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FlashcardProps from "../interfaces/FlashcardProps";
 import Flashcard from "./Flashcard";
-import fetchName from "../utils/fetchName";
-import fetchFlashcards from "../utils/fetchFlashcards";
 
 interface FlashcardsProps {
-  id: number;
+  flashcards: FlashcardProps[];
+  name: string;
 }
 
-function Flashcards({ id }: FlashcardsProps): JSX.Element {
-  const [name, setName] = useState("");
-  const [flashcards, setFlashcards] = useState<FlashcardProps[]>([]);
+function Flashcards({ flashcards, name }: FlashcardsProps): JSX.Element {
   const [index, setIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
 
@@ -32,11 +29,6 @@ function Flashcards({ id }: FlashcardsProps): JSX.Element {
 
     setShowAnswer(false);
   }
-
-  useEffect(() => {
-    fetchName(setName, id);
-    fetchFlashcards(setFlashcards, id);
-  }, [id]);
 
   return (
     <main>

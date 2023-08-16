@@ -26,7 +26,7 @@ function Title({ setMain, setChosenSet }: TitleProps): JSX.Element {
   }
 
   return (
-    <main className="title">
+    <main className="title-pick">
       <h1>Choose a title!</h1>
       <input
         type="text"

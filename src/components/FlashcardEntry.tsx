@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import fetchName from "../utils/fetchName";
+import { useState } from "react";
 import axios from "axios";
 import fetchFlashcards from "../utils/fetchFlashcards";
 import FlashcardProps from "../interfaces/FlashcardProps";
@@ -7,13 +6,20 @@ import FlashcardProps from "../interfaces/FlashcardProps";
 interface FlashcardEntryProps {
   id: number;
   setMain: React.Dispatch<React.SetStateAction<string>>;
+  flashcards: FlashcardProps[];
+  setFlashcards: React.Dispatch<React.SetStateAction<FlashcardProps[]>>;
+  name: string;
 }
 
-function FlashcardEntry({ id, setMain }: FlashcardEntryProps): JSX.Element {
-  const [name, setName] = useState("");
+function FlashcardEntry({
+  id,
+  setMain,
+  flashcards,
+  setFlashcards,
+  name,
+}: FlashcardEntryProps): JSX.Element {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  const [flashcards, setFlashcards] = useState<FlashcardProps[]>([]);
 
   async function handleClick() {
     // creates a set with the given title
@@ -30,11 +36,6 @@ function FlashcardEntry({ id, setMain }: FlashcardEntryProps): JSX.Element {
   function handleMainChange() {
     setMain("activities");
   }
-
-  useEffect(() => {
-    fetchName(setName, id);
-    fetchFlashcards(setFlashcards, id);
-  }, [id]);
 
   return (
     <main className="flashcard-entry">
