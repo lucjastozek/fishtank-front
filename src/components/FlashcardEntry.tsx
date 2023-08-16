@@ -34,7 +34,7 @@ function FlashcardEntry({
   }
 
   function handleMainChange() {
-    setMain("activities");
+    setMain("flashcards");
   }
 
   return (

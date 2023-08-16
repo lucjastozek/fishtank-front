@@ -9,7 +9,7 @@ interface SetTileProps {
 function SetTile({ set, setMain, setChosenSet }: SetTileProps): JSX.Element {
   function handleTileClick() {
     setChosenSet(set.id);
-    setMain("activities");
+    setMain("flashcards");
   }
 
   return (
