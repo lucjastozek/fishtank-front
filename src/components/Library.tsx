@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SetProps from "../interfaces/SetProps";
 import SetTile from "./SetTile";
 
@@ -8,18 +9,29 @@ interface LibraryProps {
 }
 
 function Library({ sets, setMain, setChosenSet }: LibraryProps): JSX.Element {
+  const [keywords, setKeywords] = useState("");
   return (
     <main className="library">
       <h1>Library</h1>
+      <input
+        type="text"
+        value={keywords}
+        onChange={(e) => setKeywords(e.target.value)}
+        placeholder="Search by the title..."
+      />
       <div className="tiles">
-        {sets.map((set) => (
-          <SetTile
-            set={set}
-            setChosenSet={setChosenSet}
-            setMain={setMain}
-            key={set.id}
-          />
-        ))}
+        {sets
+          .filter((set) =>
+            set.name.toLowerCase().includes(keywords.toLowerCase())
+          )
+          .map((set) => (
+            <SetTile
+              set={set}
+              setChosenSet={setChosenSet}
+              setMain={setMain}
+              key={set.id}
+            />
+          ))}
       </div>
       <button
         className="add clickable"
