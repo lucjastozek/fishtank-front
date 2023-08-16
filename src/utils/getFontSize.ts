@@ -1,12 +1,17 @@
 function getFontSize(sentence: string) {
   const words = sentence.split(" ");
   words.sort((a, b) => b.length - a.length);
-  return words[0].length > 3
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const sizes = [48 / words[0].length, 36 / words.length, 16];
+
+  return width < height
     ? {
-        fontSize: `${50 / words[0].length}vw`,
+        fontSize: `${Math.min(...sizes)}vw`,
       }
     : {
-        fontSize: `20vh`,
+        fontSize: `${Math.min(...sizes)}vh`,
       };
 }
 

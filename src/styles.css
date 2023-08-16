@@ -80,7 +80,7 @@ h3 {
   border-radius: 20px;
   background-color: #ffffff;
   margin: 1vw;
-  width: 20vw;
+  width: max(20vw, 20vh);
 }
 
 .tiles {
@@ -203,6 +203,7 @@ i {
   font-family: "Open Sans", sans-serif;
   color: #716760;
   font-size: 2rem;
+  text-align: center;
 }
 
 .true > p {
@@ -259,7 +260,7 @@ i {
 
 input {
   background-color: #ffffff;
-  min-width: 30vw;
+  width: max(40vw, 40vh);
   padding: 1vh 1vw;
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
