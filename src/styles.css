@@ -326,3 +326,12 @@ td {
   border: 1px solid #101213;
   padding: 1vh 1vw;
 }
+
+button:hover {
+  opacity: 80%;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
