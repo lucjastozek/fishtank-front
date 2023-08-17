@@ -4,9 +4,10 @@ import axios from "axios";
 interface TitleProps {
   setMain: React.Dispatch<React.SetStateAction<string>>;
   setChosenSet: React.Dispatch<React.SetStateAction<number>>;
+  user: number;
 }
 
-function Title({ setMain, setChosenSet }: TitleProps): JSX.Element {
+function Title({ setMain, setChosenSet, user }: TitleProps): JSX.Element {
   const [title, setTitle] = useState("");
 
   async function handleClick() {
@@ -14,6 +15,7 @@ function Title({ setMain, setChosenSet }: TitleProps): JSX.Element {
     const response = await axios.post(
       `https://zagadnieniator.onrender.com/collections/`,
       {
+        id: user,
         name: title,
       }
     );

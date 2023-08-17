@@ -336,3 +336,10 @@ button:active {
   transform: translateY(2px);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 }
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

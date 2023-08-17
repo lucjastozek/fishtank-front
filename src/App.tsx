@@ -11,13 +11,34 @@ import FlashcardEntry from "./components/FlashcardEntry";
 import FlashcardProps from "./interfaces/FlashcardProps";
 import fetchFlashcards from "./utils/fetchFlashcards";
 import fetchName from "./utils/fetchName";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import MySets from "./components/MySets";
 
 function App(): JSX.Element {
   const [sets, setSets] = useState<SetProps[]>([]);
-  const [main, setMain] = useState("library");
+  const [main, setMain] = useState("register");
   const [chosenSet, setChosenSet] = useState(0);
   const [flashcards, setFlashcards] = useState<FlashcardProps[]>([]);
   const [name, setName] = useState("");
+  const [user, setUser] = useState(0);
+  const [userSets, setUserSets] = useState<SetProps[]>([]);
+
+  useEffect(() => {
+    async function fetchUserCollections() {
+      const response = await axios.get(
+        `https://zagadnieniator.onrender.com/collections/user/${user}`
+      );
+
+      console.log(user);
+
+      const jsonBody = response.data;
+
+      setUserSets(jsonBody.data.collections.rows);
+    }
+
+    fetchUserCollections();
+  }, [user, main]);
 
   useEffect(() => {
     async function fetchCollections() {
@@ -40,6 +61,16 @@ function App(): JSX.Element {
   return (
     <div>
       <PageHeader setMain={setMain} />
+      {main === "userSets" && (
+        <MySets
+          userSets={userSets}
+          setMain={setMain}
+          setChosenSet={setChosenSet}
+        />
+      )}
+      {main === "register" && <Register setMain={setMain} setUser={setUser} />}
+      {main === "login" && <Login setMain={setMain} setUser={setUser} />}
+
       {main === "library" && (
         <Library sets={sets} setChosenSet={setChosenSet} setMain={setMain} />
       )}
@@ -50,7 +81,7 @@ function App(): JSX.Element {
         <Flashcards flashcards={flashcards} name={name} />
       )}
       {main === "title" && (
-        <Title setMain={setMain} setChosenSet={setChosenSet} />
+        <Title setMain={setMain} setChosenSet={setChosenSet} user={user} />
       )}
 
       {main === "flashcardEntry" && (
