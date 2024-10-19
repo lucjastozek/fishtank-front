@@ -19,6 +19,16 @@ function Library({ sets, setMain, setChosenSet }: LibraryProps): JSX.Element {
         onChange={(e) => setKeywords(e.target.value)}
         placeholder="Search by the title..."
       />
+      {sets.length < 1 && (
+        <h2>
+          Hi! <br />
+          The server is currently waking up due to its previous inactivity.
+          <br />
+          Please allow some time for the sets to load.
+          <br />
+          Thank you for your patience!
+        </h2>
+      )}
       <div className="tiles">
         {sets
           .filter((set) =>

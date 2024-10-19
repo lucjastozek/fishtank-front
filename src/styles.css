@@ -62,10 +62,19 @@ h1 {
   text-transform: capitalize;
 }
 
+h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 2em;
+  max-width: 80vw;
+  padding: 0;
+  margin: 0;
+}
+
 h3 {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: min(2rem, 1.5vw);
   text-transform: capitalize;
   padding: 0;
   margin: 0;
@@ -153,6 +162,7 @@ i {
 .progress-info {
   display: flex;
   flex-direction: row;
+  align-items: center;
   flex-wrap: nowrap;
 }
 

@@ -15,7 +15,7 @@ function SetTile({ set, setMain, setChosenSet }: SetTileProps): JSX.Element {
   return (
     <div className="tile clickable" onClick={handleTileClick}>
       <h3>{set.name}</h3>
-      <p>Progress (haha, not real yet!)</p>
+      <p>Progress</p>
       <div className="progress-info">
         <div className="progress-bar" style={{ width: "15vw" }}>
           <div className="progress" style={{ width: "10vw" }}></div>
